@@ -5,15 +5,11 @@ const quizRoutes = require('./routes/quizRoutes');
 require('dotenv').config();
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 const bodyParser = require('body-parser');
+
+
 app.use(bodyParser.json());
-
-// console.log(process.env.DB_HOST);
-// console.log(process.env.DB_PORT);
-// console.log(process.env.DB_USER);
-// console.log(process.env.DB_PASSWORD);
-
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
