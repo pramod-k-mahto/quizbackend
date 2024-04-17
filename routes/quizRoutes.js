@@ -9,7 +9,6 @@ router.get("/", async (req, res) => {
 
 router.post("/addQuestion", async (req, res) => {
   const { questionText, options, correctAnswer } = req.body;
-//   console.log(req.body);
   try {
     const sql =
       "INSERT INTO questions (question_text, options, correct_answer) VALUES (?, ?, ?)";
