@@ -4,7 +4,7 @@ const connectionPool = require("../connection");
 const bcrypt = require("bcrypt");
 
 router.get("/", async (req, res) => {
-  res.send("Home");
+  res.send("Hello This IS Home");
 });
 
 router.post("/addQuestion", async (req, res) => {
