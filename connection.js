@@ -37,9 +37,8 @@ pool.getConnection((err, connection) => {
   connection.query(createSchemaSql, (err) => {
     if (err) {
       console.error("Error creating schema:", err);
-
     }
-      console.error("Database is connected");
+    console.error("Database is connected");
     connection.release();
   });
 });
