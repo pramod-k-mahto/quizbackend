@@ -17,29 +17,29 @@ pool.getConnection((err, connection) => {
     console.error("Error connecting to MySQL:", err);
     return;
   }
-
   const createSchemaSql = `
-    CREATE TABLE IF NOT EXISTS questions (
-      id INT PRIMARY KEY AUTO_INCREMENT,
-      question_text VARCHAR(255),
-      options JSON,
-      correct_answer VARCHAR(255)
-    );
-    
-    CREATE TABLE IF NOT EXISTS users (
-      id INT PRIMARY KEY AUTO_INCREMENT,
-      first_name VARCHAR(255),
-      last_name VARCHAR(255),
-      email VARCHAR(255),
-      password VARCHAR(255)
-    );
-  `;
+  CREATE TABLE IF NOT EXISTS questions (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    question_text VARCHAR(255),
+    options TEXT,
+    correct_answer VARCHAR(255)
+  );
+  
+  CREATE TABLE IF NOT EXISTS users (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    first_name VARCHAR(255),
+    last_name VARCHAR(255),
+    email VARCHAR(255),
+    password VARCHAR(255)
+  );
+`;
 
   connection.query(createSchemaSql, (err) => {
     if (err) {
       console.error("Error creating schema:", err);
-    }
 
+    }
+      console.error("Database is connected");
     connection.release();
   });
 });
